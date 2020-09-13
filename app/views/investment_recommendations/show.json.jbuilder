@@ -1,0 +1,1 @@
+json.partial! "investment_recommendations/investment_recommendation", investment_recommendation: @investment_recommendation

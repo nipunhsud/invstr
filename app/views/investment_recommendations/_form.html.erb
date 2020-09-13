@@ -1,0 +1,44 @@
+<%= form_with(model: investment_recommendation, local: true) do |form| %>
+  <% if investment_recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(investment_recommendation.errors.count, "error") %> prohibited this investment_recommendation from being saved:</h2>
+
+      <ul>
+      <% investment_recommendation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :private %>
+    <%= form.check_box :private, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tkrsymbol %>
+    <%= form.text_field :tkrsymbol, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :body %>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if investment_recommendation.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', investment_recommendation, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if investment_recommendation.persisted? %>
+      <%= link_to "Cancel", investment_recommendation, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", investment_recommendations_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

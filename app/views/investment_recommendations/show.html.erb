@@ -1,0 +1,24 @@
+<div class="page-header">
+  <%= link_to investment_recommendations_path, class: 'btn btn-default' do %>
+  All Investment_recommendations
+  <% end %>
+  <%= link_to edit_investment_recommendation_path(@investment_recommendation), class: 'btn btn-primary' do %>
+  Edit
+  <% end %>
+  <h1>Show investment_recommendation</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Private:</dt>
+  <dd><%= @investment_recommendation.private %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @investment_recommendation.user.first_name %></dd>
+
+  <dt>Tkrsymbol:</dt>
+  <dd><%= @investment_recommendation.tkrsymbol %></dd>
+
+  <dt>Body:</dt>
+  <dd><%= @investment_recommendation.body %></dd>
+
+</dl>
